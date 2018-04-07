@@ -8,8 +8,10 @@ public class GPS : MonoBehaviour{
 	public float latitude;
 	public float longitude;
 	public float heading;
+	private float timeUpdate;
 	
 	private void Start(){
+		timeUpdate = Time.fixedTime + 0.5f;
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
 		StartCoroutine(StartLocationService());
@@ -39,9 +41,12 @@ public class GPS : MonoBehaviour{
 		yield break;
 	}
 	
-	private void Update(){
-		latitude = Input.location.lastData.latitude;
-		longitude = Input.location.lastData.longitude;
-		heading = Input.compass.trueHeading;
+	private void FixedUpdate(){
+		if(Time.fixedTime >= timeUpdate){
+			latitude = Input.location.lastData.latitude;
+			longitude = Input.location.lastData.longitude;
+			heading = Input.compass.trueHeading;
+			timeUpdate = Time.fixedTime + 0.5f;
+		}
 	}
 }
