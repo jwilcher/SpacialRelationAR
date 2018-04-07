@@ -19,7 +19,6 @@ public class UpdateCompassText : MonoBehaviour{
 			nsew = 'W';
 		}
 		heading.text = "     " + nsew + "\n" +bearing.ToString();
-//		heading.text = "     " + "\n" +GPS.Instance.heading.ToString();
 	}
 	
 }
