@@ -9,6 +9,12 @@ public class GPS : MonoBehaviour{
 	public float longitude;
 	public float heading;
 	private float timeUpdate;
+	public float myx;
+	public float myy;
+	public float myz;
+	public float objx;
+	public float objy;
+	public float objz;
 	
 	private void Start(){
 		timeUpdate = Time.fixedTime + 0.5f;
@@ -46,6 +52,9 @@ public class GPS : MonoBehaviour{
 			latitude = Input.location.lastData.latitude;
 			longitude = Input.location.lastData.longitude;
 			heading = Input.compass.trueHeading;
+			myx = Input.acceleration.x;
+			myy = Input.acceleration.y;
+			myz = Input.acceleration.z;
 			timeUpdate = Time.fixedTime + 0.5f;
 		}
 	}
