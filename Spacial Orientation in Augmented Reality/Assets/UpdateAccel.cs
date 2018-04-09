@@ -7,6 +7,6 @@ public class UpdateAccel : MonoBehaviour{
 	public Text thePosition;
 	
 	private void Update(){
-		thePosition.text = ""+ Accel.Instance.myx +"\n"+ Accel.Instance.myy +"\n"+ Accel.Instance.myz +"\n"+ Accel.Instance.objx +"\n"+ Accel.Instance.objy +"\n"+ Accel.Instance.objz +"\n";
+		thePosition.text = ""+ Accel.Instance.myx +"\n"+ Accel.Instance.myy +"\n"+ Accel.Instance.myz +"\nRot X: "+ Accel.Instance.objx +"\nPos X: "+ Accel.Instance.objy +"\nPos Y: "+ Accel.Instance.objz +"\nScreenH: "+ Accel.Instance.screenH;
 	}
 }
