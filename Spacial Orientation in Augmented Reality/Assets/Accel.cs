@@ -37,7 +37,7 @@ public class Accel : MonoBehaviour{
 //		transform.Translate(-this.transform.localPosition.x,((screenH * Input.acceleration.z) - this.transform.localPosition.y), 0);
 //		Mathf.Lerp(myz, secondz, 0.5)
 		
-		transform.Translate(-objy,-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz), 0);
+		transform.Translate(-objy,(-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz))/5.0f, 0);
 		if(Time.fixedTime >= timeUpdate){
 			secondz = (int)(Input.acceleration.z * 1000.0f) / 1000.0f;
 			timeUpdate = Time.fixedTime + 0.1f;
