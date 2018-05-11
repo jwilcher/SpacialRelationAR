@@ -26,18 +26,16 @@ public class Accel : MonoBehaviour{
 	}
 	
 	void Update(){
-		objx = this.transform.localRotation.x;
+		objx = this.transform.localRotation.z;
 		objy = this.transform.localPosition.x;
 		objz = this.transform.localPosition.y;
 		myx = Input.acceleration.x;
 		myy = Input.acceleration.y;
 		myz = (int)(Input.acceleration.z * 1000.0f) / 1000.0f;
 		
-		transform.Rotate(0, 0, -1 * ((this.transform.localRotation.z - (Input.acceleration.x/2.0f))*5.0f));
-//		transform.Translate(-this.transform.localPosition.x,((screenH * Input.acceleration.z) - this.transform.localPosition.y), 0);
-//		Mathf.Lerp(myz, secondz, 0.5)
+		transform.Rotate(0, 0, -1 * ((this.transform.localRotation.z - (Input.acceleration.x/2.0f))*25.0f));
 		
-		transform.Translate(-objy,-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz), 0);
+		transform.Translate(-objy,(-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz))/20.0f, 0);
 		if(Time.fixedTime >= timeUpdate){
 			secondz = (int)(Input.acceleration.z * 1000.0f) / 1000.0f;
 			timeUpdate = Time.fixedTime + 0.1f;
