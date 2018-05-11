@@ -35,7 +35,7 @@ public class Accel : MonoBehaviour{
 		
 		transform.Rotate(0, 0, -1 * ((this.transform.localRotation.z - (Input.acceleration.x/2.0f))*25.0f));
 		
-		transform.Translate(-objy,(-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz))/25.0f, 0);
+		transform.Translate(-objy,(-1 * ((screenH * Mathf.Lerp(myz, secondz, 0.5f)) + objz))/20.0f, 0);
 		if(Time.fixedTime >= timeUpdate){
 			secondz = (int)(Input.acceleration.z * 1000.0f) / 1000.0f;
 			timeUpdate = Time.fixedTime + 0.1f;
